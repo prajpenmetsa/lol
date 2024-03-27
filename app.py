@@ -21,11 +21,14 @@ app.config['JWT_COOKIE_CSRF_PROTECT'] = False
 app.config['JWT_SECRET_KEY'] = 'super-secret'
 jwt = JWTManager(app)
 
-cert_decoded = base64.b64decode(os.environ['R00T_CERT_BASE64'])
-cert_path = '/opt/render/.postgresql/root.crt'
-os.makedirs(os.path.dirname(cert_path), exist_ok=True)
-with open(cert_path, 'wb') as cert_file: 
-    cert_file.write(cert_decoded)
+def get_db_connection():
+    cert_decoded = base64.b64decode(os.environ['R00T_CERT_BASE64'])
+    cert_path = '/opt/render/.postgresql/root.crt'
+    os.makedirs(os.path.dirname(cert_path), exist_ok=True)
+    with open(cert_path, 'wb') as cert_file: 
+        cert_file.write(cert_decoded)
+
+get_db_connection()
 
 db = psycopg2.connect("postgresql://lakshmi:-wsuF7g_tKtqKXTFAm4huw@iss-group-3-4110.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full")
 cursor = db.cursor()
