@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 300px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            width: 100%;
+            background-color: lightblue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00008B;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <button onclick="goToLoginPage()">Go to Login</button>
+        <br><br><br>
+        <button onclick="goToSignupPage()">Go to Sign Up</button>
+    </div>
+
+    <script>
+        function goToLoginPage() {
+            location.href = "login";
+        }
+
+        function goToSignupPage() {
+            location.href = "signup";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Page</title>
+  <link rel="stylesheet" href="ISSPhAu.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <style>
+  
+  .heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 60px;
+      font-weight: 800;
+      color: #ff8c00;
+      text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00, 0 0 30px #ff8c00, 0 0 40px #ff8c00, 0 0 50px #ff8c00, 0 0 60px #ff8c00, 0 0 70px #ff8c00;
+      padding: 10px;
+      display: inline-block;
+      border-radius: 15px;
+      animation: flashText 2s infinite;
+  }
+
+    .lol {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+    }
+
+    .drag-drop {
+      border: 2px dashed #3995f8;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .drag-drop:hover {
+      background-color: #f0f0f0;
+    }
+
+    .imgupload {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      width: 500px;
+      height: 200px;
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    #imageInput {
+      display: none;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: FFFFF;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 12px;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+    }
+
+    button:hover {
+      background-color: #5f9ea0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5dc;
+      text-align: center;
+      font-size: 1.4em;
+      padding: 20px;
+    }
+
+    #uploadContainer {
+      background-color: #000000;
+      border-radius: 25px;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    #previewContainer {
+      background-color: #ffcccc;
+      border-radius: 25px;
+      padding: 20px;
+      margin-bottom: 55px;
+      animation: flashBorder 2s infinite;
+      border: 2px solid #000000;
+    }
+
+    @keyframes flashBorder {
+      0% {
+        border-color: #0000ff;
+      }
+      50% {
+        border-color: #ffffff; 
+      }
+      100% {
+        border-color: #0000ff; 
+      }
+    }
+
+    select, button {
+      font-size: 0.9em;
+    }
+
+    #previewTitle {
+      color: #ff0000; 
+    }
+
+    select {
+      color: black;
+    }
+
+    #audioInput {
+      display: none;
+    }
+
+    .audioButton {
+      margin-top: 20px;
+      background-color: #000000;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 12px;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .audioButton:hover {
+      background-color: #5f9ea0;
+    }
+
+    .background-decor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.2;
+      background-size: cover;
+      background-repeat: repeat;
+    }
+
+    @keyframes flashText {
+      0% {
+        color: #ff8c00; 
+      }
+      50% {
+        color: #000000;
+      }
+      100% {
+        color: #ff8c00;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="heading">Video Page</h1>
+
+  <div id="previewContainer">
+    <video id="previewVideo" width="640" height="360" controls>
+      <source src="../static/video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div  class = "lol">
+    To upload audio as background to the video, follow three simple steps!
+    Click on any audio sample from below. Pause the video. Play the video.
+  </div>
+  <br><br>
+
+  <div id="uploadContainer" class="drag-drop">
+    <button class="audioButton" onclick="addAudio('../static/audios/audio1.mp3')">🎧 Audio 1</button>
+    <button class="audioButton" onclick="addAudio('../static/audios/audio2.mp3')">🎧 Audio 2</button>
+    <button class="audioButton" onclick="addAudio('../static/audios/audio3.mp3')">🎧 Audio 3</button>
+    <button class="audioButton" onclick="addAudio('../static/audios/audio4.mp3')">🎧 Audio 4</button>
+    <button class="audioButton" onclick="addAudio('../static/audios/audio5.mp3')">🎧 Audio 5</button>
+  </div>
+
+  <script>
+    var audio = new Audio();
+  
+    function addAudio(audioSrc) {
+      console.log("Adding audio:", audioSrc);
+  
+      // Set the source of the audio element
+      audio.src = audioSrc;
+      audio.volume = 0.4;
+      audio.playbackRate = 1.5;
+  
+      var video = document.getElementById('previewVideo');
+  
+      // Play audio when video starts playing
+      video.addEventListener('play', function() {
+        audio.play();
+      });
+  
+      // Pause audio when video is paused
+      video.addEventListener('pause', function() {
+        audio.pause();
+      });
+  
+      // Stop audio when video ends
+      video.addEventListener('ended', function() {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+  
+      // Sync audio with video time updates
+      video.addEventListener('timeupdate', function() {
+        audio.currentTime = video.currentTime;
+      });
+  
+      // Mute audio when video is muted
+      video.addEventListener('volumechange', function() {
+        if (video.muted) {
+          audio.muted = true;
+        } else {
+          audio.muted = false;
+        }
+      });
+    }
+  </script> 
+</body>
+</html>

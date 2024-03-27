@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiple Image Upload</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet">
+<style>
+  * {
+    background-color:#5FA8D3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+
+  }
+  .heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+  }
+  body {
+    text-align: center;
+    font-size: 1.4em;
+    padding: 20px;
+  }
+
+  select {
+    color: black;
+  } 
+
+  #drop-area {
+      border: 5px dashed #fff;
+      width: 300px;
+      height: 200px;
+      padding: 20px;
+      text-align: center;
+      margin: 0 auto;
+  }
+  #gallery {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .thumb {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #sub {
+    border-radius: 25px;
+    background: lemonchiffon;
+    padding: 20px;
+    width: 200px;
+    height: 90px;
+    color: #1B4965;
+    border: none;
+    margin: 10px;
+  }
+</style>
+</head>
+<body>
+    <h1>Image Upload</h1>
+    <div id="drop-area">
+        <form id="uploadForm" enctype="multipart/form-data" action="/api/uploadimg" method="post">
+            <input type="file" name="images" id="file-input" multiple style="display: none;">
+            <label for="file-input">click to select</label>
+            <button id = "sub" type="submit">Upload</button>
+        </form>
+    </div>
+    <div id="gallery"></div>
+</body>
+</html>

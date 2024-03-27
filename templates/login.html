@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 300px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .word {
+            font-size: 18px;
+            color: black;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            background-color: lightblue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00008B;
+        }
+
+        #loginStatus {
+            margin-top : 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <label class="word" for="name">Enter username:</label>
+            <input type="text" id="name" name="name" placeholder="name" required>
+            <br><br>
+            <label class="word" for="password">Enter password:</label>
+            <input type="password" id="password" name="password" placeholder="password" required>
+            <br><br>
+            <button type="submit" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Login</button>
+        </form>
+        <div id="loginStatus"></div>
+    </div>
+    <script>
+        function validateLogin() {
+            const username = document.getElementById('name').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // if (username === 'user' && password === '1234') {
+            //     document.getElementById('loginStatus').innerText = "Login Success";
+            //     return false; // to prevent form submission
+            // }
+            // else if (username === 'admin' && password === 'admin') {
+            //     document.getElementById('loginStatus').innerText = "Admin Login Success";
+            //     return false; // to prevent form submission
+            // } else {
+            //     document.getElementById('loginStatus').innerText = "Invalid username or password";
+            //     return false; // to prevent form submission
+            // }
+        }
+    </script>
+</body>
+</html>

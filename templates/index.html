@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav {
+            background-color: #7086E8;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            font-size: 25px;
+            font-family: 'Montserrat', sans-serif;
+            color: rgb(255, 255, 255);
+            background-color: #7086E8;
+            padding: 10px;
+            margin: 0px 15px;
+            text-decoration: none;
+        }
+        .heading {
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #283b90;
+            text-align: center;
+            z-index: 1;
+        }
+        body {
+            background-color: #acceec;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            flex-direction: column;
+        }
+        video {color: #000000;}
+        .bg-image {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .bg-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px;
+        }
+        h3 {
+            font-size: 30px;
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
+
+        }
+        #button1 {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif; /* Use specified font */
+            font-size: 20px;
+            background: #7086E8;
+            padding: 20px;
+            width: 200px;
+            height: 57px;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            margin: 10px;
+            text-align: center;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- top bar that just looks cool-->
+    <nav>
+        <a href="">Team Blue. &#128075</a>
+    </nav>
+
+    <!-- cool title masking image -->
+    <div class = "heading">
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 style = "font-size: 90px;">Image to Video Converter</h1>
+        <br><br><br>
+        <h3 style="text-align: center;">create stunning high-quality videos.</h3>
+    </div>
+    <div class="bg-image">
+        <img src="../static/images/bg.png"/>
+        
+        </div>
+    </div>
+
+    <!-- navigation bar that moves according to the section -->
+    <nav>
+        BLUE
+    </nav>
+    <br><br><br>
+    <h3>Create Video  &#128247</h3>
+    <br>
+    <a id="button1" href="{{ url_for('videopage') }}">Create Video</a>
+    <br><br><br><br>
+    <footer style = "background-color: #5FA8D3; color: white; padding: 10px; text-align: center; width: 100%; position: fixed; bottom: 0;">
+        &copy; TeamBlue est. 2024
+    </footer>
+</body>
+</html>
