@@ -30,7 +30,7 @@ def get_db_connection():
 
 get_db_connection()
 
-db = psycopg2.connect("postgresql://lakshmi:-wsuF7g_tKtqKXTFAm4huw@iss-group-3-4110.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full")
+db = psycopg2.connect("postgresql://lakshmi:pass123@@iss-group-3-4110.7s5.aws-ap-south-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full")
 cursor = db.cursor()
 
 # Initialize Bcrypt for password hashing
@@ -40,7 +40,7 @@ bcrypt = Bcrypt()
 def fetch_user(username):
     print(username)
     query = "SELECT * FROM user_info WHERE username = %s;"
-    cursor.execute(query, (username,))
+    cursor.execute(query, [username])
     x = cursor.fetchone()
     return x
 
@@ -122,7 +122,7 @@ def videopage():
     return render_template('videopage.html')
 
 @app.route('/api/uploadimg', methods=['POST'])
-@jwt_required()
+@jwt_required ()
 def upload_images():
     return render_template('display.html')
     # user = get_jwt_identity()

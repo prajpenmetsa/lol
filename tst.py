@@ -1,4 +1,5 @@
-def video():
+def video(): # fetch images from database 
+
     current_user = get_jwt_identity()
 
     # Clear the images folder
